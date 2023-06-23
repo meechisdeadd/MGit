@@ -6,7 +6,7 @@ class Single extends Ship {
     this.weapon = weapon;
   }
 
-  // Additional methods specific to the Enemy class
+
 }
 
 module.exports = Single;

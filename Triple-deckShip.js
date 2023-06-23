@@ -6,7 +6,7 @@ class Triple extends Ship {
     this.sword = sword;
   }
 
-  // Additional methods specific to the Warrior class
+
 }
 
 module.exports = Triple;

@@ -8,8 +8,7 @@
 // for (let i = 0; i < rows; i++) {
 //   twoDimensionalArray[i] = [];
 //   for (let j = 0; j < columns; j++) {
-
-//     twoDimensionalArray[i][j] = '\uD83D\uDCA7'; 
+//     twoDimensionalArray[i][j] = '\uD83D\uDCA7';
 //   }
 // }
 // console.log(twoDimensionalArray);

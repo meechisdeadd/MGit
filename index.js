@@ -1,3 +1,4 @@
+const readlineSync = require('readline-sync');
 const Triple = require('./Triple-deckShip');
 const Double = require('./Double-deckShip');
 const Single = require('./Single-deckShip');
@@ -6,8 +7,12 @@ const rows = 6;
 const columns = 6;
 const field = [];
 
+
 const waterEmoji = '\uD83D\uDCA7'; 
 const shipEmoji = '\uD83D\uDEA2'; 
+// во время запуска игры выводится форма регистрации и присваивается имя игрока
+const name = readlineSync.question('Приветствуем тебя!\nВведи своё имя: ');
+
 
 for (let i = 0; i < rows; i++) {
   field[i] = Array(columns).fill(waterEmoji);
@@ -55,6 +60,7 @@ const isPositionOccupied = (occupiedPositions, row, column, shipSize, orientatio
 };
 
 const tripleSize = 3;
+
 const tripleOrientation = Math.floor(Math.random() * 2);
 let triplePosition = generateRandomPosition(field, tripleSize, tripleOrientation);
 if (tripleOrientation === 0 && triplePosition.column + tripleSize <= columns) {
@@ -88,5 +94,45 @@ const singleSize = 1;
 const singlePosition = generateRandomPosition(field, singleSize, 0);
 const single = new Single('Chort', 'single', singleSize, singlePosition.row, singlePosition.column, 40);
 field[single.row][single.column] = shipEmoji;
+
+const triplePosition = generateRandomPosition(field, tripleSize);
+const triple = new Triple(
+  'Conon',
+  'triple',
+  tripleSize,
+  triplePosition.row,
+  triplePosition.column,
+  30
+);
+for (let i = 0; i < tripleSize; i++) {
+  field[triple.row][triple.column + i] = triple;
+}
+
+const doubleSize = 2;
+const doublePosition = generateRandomPosition(field, doubleSize);
+const double = new Double(
+  'Marlyn',
+  'Double',
+  doubleSize,
+  doublePosition.row,
+  doublePosition.column,
+  25
+);
+for (let i = 0; i < doubleSize; i++) {
+  field[double.row][double.column + i] = double;
+}
+
+const singleSize = 1;
+const singlePosition = generateRandomPosition(field, singleSize);
+const single = new Single(
+  'Chort',
+  'single',
+  singleSize,
+  singlePosition.row,
+  singlePosition.column,
+  40
+);
+field[single.row][single.column] = single;
+
 
 console.table(field);

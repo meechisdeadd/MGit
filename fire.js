@@ -1,6 +1,5 @@
 function fire() {
   // здесь код, который меняет игровое поле после выстрела
-  
 }
 
 function showBattlefield() {

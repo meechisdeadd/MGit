@@ -9,7 +9,8 @@ class Ship {
 
   moveRandomly(rows, columns) {
     const directions = ['up', 'down', 'left', 'right'];
-    const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+    const randomDirection =
+      directions[Math.floor(Math.random() * directions.length)];
 
     switch (randomDirection) {
       case 'up':

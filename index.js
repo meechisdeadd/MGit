@@ -1,3 +1,4 @@
+const readlineSync = require('readline-sync');
 const Triple = require('./Triple-deckShip');
 const Double = require('./Double-deckShip');
 const Single = require('./Single-deckShip');
@@ -5,6 +6,9 @@ const Single = require('./Single-deckShip');
 const rows = 6;
 const columns = 6;
 const field = [];
+
+// во время запуска игры выводится форма регистрации и присваивается имя игрока
+const name = readlineSync.question('Приветствуем тебя!\nВведи своё имя: ');
 
 for (let i = 0; i < rows; i++) {
   field[i] = [];
@@ -39,21 +43,42 @@ const isPositionOccupied = (occupiedPositions, row, column, shipSize) => {
 
 const tripleSize = 3;
 const triplePosition = generateRandomPosition(field, tripleSize);
-const triple = new Triple('Conon', 'triple', tripleSize, triplePosition.row, triplePosition.column, 30);
+const triple = new Triple(
+  'Conon',
+  'triple',
+  tripleSize,
+  triplePosition.row,
+  triplePosition.column,
+  30
+);
 for (let i = 0; i < tripleSize; i++) {
   field[triple.row][triple.column + i] = triple;
 }
 
 const doubleSize = 2;
 const doublePosition = generateRandomPosition(field, doubleSize);
-const double = new Double('Marlyn', 'Double', doubleSize, doublePosition.row, doublePosition.column, 25);
+const double = new Double(
+  'Marlyn',
+  'Double',
+  doubleSize,
+  doublePosition.row,
+  doublePosition.column,
+  25
+);
 for (let i = 0; i < doubleSize; i++) {
   field[double.row][double.column + i] = double;
 }
 
 const singleSize = 1;
 const singlePosition = generateRandomPosition(field, singleSize);
-const single = new Single('Chort', 'single', singleSize, singlePosition.row, singlePosition.column, 40);
+const single = new Single(
+  'Chort',
+  'single',
+  singleSize,
+  singlePosition.row,
+  singlePosition.column,
+  40
+);
 field[single.row][single.column] = single;
 
 console.table(field);

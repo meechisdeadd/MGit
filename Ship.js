@@ -28,10 +28,6 @@ class Ship {
     }
   }
 
-  // attackEnemy(enemy) {
-  //   const damage = this.attack - enemy.defense;
-  //   enemy.health = Math.max(0, enemy.health - damage);
-  // }
 
   checkHealth() {
     if (this.health <= 0) {

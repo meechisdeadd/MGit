@@ -6,7 +6,7 @@ class Double extends Ship {
     this.stick = stick;
   }
 
-  // Additional methods specific to the Wizard class
+
 }
 
 module.exports = Double;
